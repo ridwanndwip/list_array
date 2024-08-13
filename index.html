@@ -5,9 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testing</title>
   <link href="output.css" rel="stylesheet">
-  sty
 </head>
 <body>
-  <h1 class="m-4 p-4 bg-green-700">Test 123 Tailwind</h1>
+
+  <div class="mx-auto bg-gray-500 flex justify-center">
+    <div class="my-12">
+      <h3 class="block bg-yellow-200 py-3 px-20">Simple Todo List</h3>
+
+      <div class="NewTask bg-gray-400 p-4 mt-4">
+        <input type="text" placeholder="write task here...">
+        <span class="bg-slate-300 cursor-pointer">Add Task</span>
+      </div>
+
+      <!-- List -->
+      <div class="block mt-4 bg-slate-200 flex gap-3 flex-col py-6">
+        <div class="list flex mx-4">
+            <img src="img/ArrowCircle.png" alt="ArrowCircle" style="width:24px;" class="block mr-2">
+            <span class="relative"> ToDoList1 </span>
+        </div>
+
+        <div class="list flex mx-4">
+          <img src="img/ArrowCircle.png" alt="ArrowCircle" style="width:24px;" class="block mr-2">
+          <span class="relative"> ToDoList1 </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<script src="index.js"></script>
 </body>
 </html>
