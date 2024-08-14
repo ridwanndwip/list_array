@@ -8,43 +8,101 @@
 </head>
 <body>
 
-  <div class="mx-auto bg-gray-500 flex justify-center">
+  <div class="mx-auto bg-green-400 flex justify-center">
     <div class="my-12">
       <h3 class="block bg-yellow-200 py-3 px-20">Simple Todo List</h3>
 
       <div class="NewTask bg-gray-400 p-4 mt-4">
         <input type="text" placeholder="write task here..." id="InputTask">
-        <span class="bg-slate-300 cursor-pointer" onclick="tambahData()" id="addFunction">Add Task</span>
+        <span class="bg-slate-300 cursor-pointer" id="addFunction">Add Task</span>
       </div>
 
       <!-- List -->
-      <div class="block mt-4 bg-slate-200 flex gap-3 flex-col py-6">
+      <div class="block mt-4 bg-slate-200 flex gap-3 flex-col py-6" id="ParentList">
+        
         <div class="list flex mx-4">
-            <img src="img/ArrowCircle.png" alt="ArrowCircle" style="width:24px;" class="block mr-2">
-            <span class="relative"> ToDoList1 </span>
-            <span class="ml-10 cursor-pointer" onclick="hapusData()" id="deleteFunction"> Delete Task</span>
+          <img src="img/ArrowCircle.png" class="block mr-2" width="23px">
+          <span> ToDoList1 </span>
+          <button class="ml-10 deleteFunction" id="removeList"> delete Task </button>
         </div>
 
-        <div class="list flex mx-4">
-          <img src="img/ArrowCircle.png" alt="ArrowCircle" style="width:24px;" class="block mr-2">
-          <span class="relative"> ToDoList1 </span>
-        </div>
       </div>
 
     </div>
   </div>
 <script>
-  let myArr = ['Todolist1', 'Todolist2'];
-  let inputTask = document.getElementById('InputTask');
-  let addFunction = document.getElementById('addFunction');
-  let deleteFunction = document.getElementById('deleteFunction');
+  // let myArr = ['Todolist1', 'Todolist2'];
+  // let deleteFunction = document.getElementById('deleteFunction');
+    
+  // deklarasi element
+    
+
+    // memasukkan konten ke element
+
+    // tambah class
+    
+
+    // memasukkan element yang sudah di deklarasi ke node
+   
+    
+    // console.log(newDiv);
+
+  function AddTask(){
+    let parentList = document.getElementById('ParentList');
+    let valueTask = document.getElementById('InputTask').value;
+    let newDiv = document.createElement('div')
+    let newImg = document.createElement('img')
+    let newSpan = document.createElement('span');
+    let newButton = document.createElement('button')
+
+    newSpan.textContent = valueTask;
+    newButton.textContent = 'Delete Task'
+
+    newDiv.appendChild(newImg);
+    newDiv.appendChild(newSpan);
+    newDiv.appendChild(newButton);
+
+    newDiv.classList.add('flex', 'm-4', 'list');
+    newImg.setAttribute('src', 'img/ArrowCircle.png');
+    newImg.setAttribute('width', '24px');
+    newImg.classList.add('block', 'mr-2');
+    newButton.classList.add('ml-10', 'deleteFunction');
+
+    // memasukkan div ke dalam parentList
+    parentList.appendChild(newDiv);
+  }
+
+  // function DeleteTask(){
+  //   for (let i = 0; i < deleteList.length; i++){
+  //     console.log(deleteList[i]);
+  //   }
+  // }
+
+  function DeleteTask(){
+    let deleteList = document.querySelectorAll('.deleteFunction');
+    for(let i = 0; i<deleteList.length; i++){
+      deleteList[i].addEventListener('click', function(){
+        console.log(i)
+      })
+    }
+  }
+
+
+  // Menambahkan eventListener untuk tambah data 
+  document.getElementById('addFunction').addEventListener('click', AddTask);
+
+  document.getElementById('removeList').addEventListener('click', DeleteTask);
+
+  // console.log(onclick.addFunction);
+  
   
   // console.log(inputTask);
 
-  function tambahData(){
-    let valueTask = inputTask.value;
-    console.log(valueTask);
-  }
+  // function tambahData(){
+  //   let valueTask = inputTask.value;
+  //   console.log(valueTask);
+  // }
+
 </script>
 </body>
 </html>
