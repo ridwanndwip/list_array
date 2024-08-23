@@ -19,6 +19,17 @@ module.exports = {
     padding:{
       'py-3.5' : '0.9rem 0 0.9rem 0',
     },
+    screens:{
+      'xs' : '480px',
+      's' : '576px',
+      'm' : '768px',
+      'l' : '992px',
+      'xl' : '1280px',
+      'hd' : '1680px',
+    },
+    width:{
+      'w-100':'400px',
+    }
     },
   },
   plugins: [],
