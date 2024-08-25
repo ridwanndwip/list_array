@@ -20,7 +20,7 @@ module.exports = {
       'py-3.5' : '0.9rem 0 0.9rem 0',
     },
     screens:{
-      'xs' : '480px',
+      'xs' : '400px',
       's' : '576px',
       'm' : '768px',
       'l' : '992px',
