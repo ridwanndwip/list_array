@@ -25,47 +25,50 @@
 
     <div class="p-5 xs:p-10">
       
-      <!-- Date -->
-      <div class="flex gap-4 font-medium items-center mb-10 flex-col s:gap-0 s:justify-between s:flex-row">
-        <div class="flex gap-2 justify-items-start">
-          <h1 class="text-5xl xs:text-6xl">12</h1>
-          <div class="flex flex-col justify-center">
-            <span class="text-sm self-end tracking-sm">JAN</span>
-            <span class="text-sm self-center">2013</span>
+        <!-- Date -->
+        <div class="flex gap-4 font-medium items-center mb-10 flex-col s:gap-0 s:justify-between s:flex-row">
+          <div class="flex gap-2 justify-items-start">
+            <h1 class="text-5xl xs:text-6xl">12</h1>
+            <div class="flex flex-col justify-center">
+              <span class="text-sm self-end tracking-sm">JAN</span>
+              <span class="text-sm self-center">2013</span>
+            </div>
+          </div>
+          <h1 class="block justify-items-center flex self-center tracking-md text-xl"> TUESDAY </h1>
+        </div>
+
+        <div class="parentList">
+          <!-- List -->
+          <div class="mt-6 flex justify-between">
+            <span class="block text-xs font-light tracking-sm text-colorLine"> Simple TodoList</span>
+            <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+          </div>
+    
+          <div class="mt-6 flex justify-between">
+            <span class="block text-xs font-light tracking-sm text-colorLine w-4/5 text-left">Simple TodoList</span>
+            <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+          </div>
+    
+          <div class="mt-6 flex justify-between items-center">
+            <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
+            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+          </div>
+          
+          <div class="mt-6 flex justify-between items-center">
+            <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
+            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
           </div>
         </div>
-        <h1 class="block justify-items-center flex self-center tracking-md text-xl"> TUESDAY </h1>
-      </div>
 
-      <!-- List -->
-        <div class="mt-6 flex justify-between">
-          <span class="block text-xs font-light tracking-sm text-colorLine"> Simple TodoList</span>
-          <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
-        </div>
-  
-        <div class="mt-6 flex justify-between">
-          <span class="block text-xs font-light tracking-sm text-colorLine w-4/5 text-left">Simple TodoList</span>
-          <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
-        </div>
-  
-        <div class="mt-6 flex justify-between items-center">
-          <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
-          <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
-        </div>
-        
-        <div class="mt-6 flex justify-between items-center">
-          <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
-          <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+        <!-- Button -->
+        <div class="mt-10 flex justify-center">
+          <input type="text" placeholder="write task here..." id="inputTask" class="inputTask hidden">
+          <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal shadow-xl">+ New Task</button>
         </div>
 
-      <!-- Button -->
-      <div class="mt-10 flex justify-center">
-        <button class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal xs:p-py-3.5 xs:px-6 shadow-xl">+ New Task</button>
       </div>
 
     </div>
-
-  </div>
     
     <!-- Add Task Button -->
     <!-- <div class="-mt-16">
@@ -96,6 +99,38 @@
   </div> -->
 
 <script>
+
+    
+
+    function addCol(){
+      // let inputTask = document.getElementById
+      // let valueTask = document.getElementById('inputTask').style.display ='block';
+      let valueTask = document.getElementById('inputTask');
+      valueTask.style.display = 'block';
+      let inputTaskButton = document.getElementById('addTaskButton').classList.add('inputTask');
+
+    // console.log(valueTask);
+      // console.log(inputTaskButton);
+      // valueTask.classList.add('inputTask');
+      // console.log(valueTask);
+
+      // let addCol = document.getElementById('addFunction').addEventListener('click', function(){
+      //   let valueTask = document.getElementById('inputTask').value;
+      //   let newDiv = document.createElement('div');
+      //   let newSpan = document.createElement('span');
+      //   let newImg = document.createElement('img');
+
+      //   newSpan.textContent = valueTask.value;
+        // newButton.textContent = 'Delete Task'
+
+        // console.log(newSpan);
+        // valueTask.style.display = 'block';
+        // console.log('click');
+      // })
+    }
+    // console.log(valueTask);
+    document.getElementById('addTaskButton').addEventListener('click', addCol);
+
   // let myArr = ['Todolist1', 'Todolist2'];
   // let deleteFunction = document.getElementById('deleteFunction');
     
@@ -112,51 +147,55 @@
     
     // console.log(newDiv);
 
-  function AddTask(){
-    let parentList = document.getElementById('ParentList');
-    let valueTask = document.getElementById('InputTask').value;
-    let newDiv = document.createElement('div')
-    let newImg = document.createElement('img')
-    let newSpan = document.createElement('span');
-    let newButton = document.createElement('button')
+    // let valueTask = document.getElementById('InputTask');
 
-    newSpan.textContent = valueTask;
-    newButton.textContent = 'Delete Task'
+    // let newButton = document.getElementById('button').addEventListener('click', function(){
+    //   valueTask.style.display = 'block';
+    // })  
 
-    newDiv.appendChild(newImg);
-    newDiv.appendChild(newSpan);
-    newDiv.appendChild(newButton);
 
-    newDiv.classList.add('flex', 'm-4', 'list');
-    newImg.setAttribute('src', 'img/ArrowCircle.png');
-    newImg.setAttribute('width', '24px');
-    newImg.classList.add('block', 'mr-2');
-    newButton.classList.add('ml-10', 'deleteFunction');
+    // function AddTask(){
+    // let parentList = document.getElementById('ParentList');
+    // let valueTask = document.getElementById('InputTask').value;
+    // let newButton = document.createElement('button');
+
+    // newSpan.textContent = valueTask;
+    // newButton.textContent = 'Delete Task'
+
+    // newDiv.appendChild(newImg);
+    // newDiv.appendChild(newSpan);
+    // newDiv.appendChild(newButton);
+
+    // newDiv.classList.add('flex', 'm-4', 'list');
+    // newImg.setAttribute('src', 'img/ArrowCircle.png');
+    // newImg.setAttribute('width', '24px');
+    // newImg.classList.add('block', 'mr-2');
+    // newButton.classList.add('ml-10', 'deleteFunction');
 
     // memasukkan div ke dalam parentList
-    parentList.appendChild(newDiv);
-  }
+  //   parentList.appendChild(newDiv);
+  // }
 
   // function DeleteTask(){
   //   for (let i = 0; i < deleteList.length; i++){
   //     console.log(deleteList[i]);
   //   }
   // }
-
-  function DeleteTask(){
-    let deleteList = document.querySelectorAll('.deleteFunction');
-    for(let i = 0; i<deleteList.length; i++){
-      deleteList[i].addEventListener('click', function(){
-        console.log(i)
-      })
-    }
-  }
+  
+  // function DeleteTask(){
+  //   let deleteList = document.querySelectorAll('.deleteFunction');
+  //   for(let i = 0; i<deleteList.length; i++){
+  //     deleteList[i].addEventListener('click', function(){
+  //       console.log(i)
+  //     })
+  //   }
+  // }
+  
 
 
   // Menambahkan eventListener untuk tambah data 
-  document.getElementById('addFunction').addEventListener('click', AddTask);
 
-  document.getElementById('removeList').addEventListener('click', DeleteTask);
+  // document.getElementById('removeList').addEventListener('click', DeleteTask);
 
   // console.log(onclick.addFunction);
   
