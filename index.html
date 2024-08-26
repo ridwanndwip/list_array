@@ -37,7 +37,7 @@
           <h1 class="block justify-items-center flex self-center tracking-md text-xl"> TUESDAY </h1>
         </div>
 
-        <div class="parentList">
+        <div class="parentList" id="parentList">
           <!-- List -->
           <div class="mt-6 flex justify-between">
             <span class="block text-xs font-light tracking-sm text-colorLine"> Simple TodoList</span>
@@ -61,8 +61,8 @@
         </div>
 
         <!-- Button -->
-        <div class="mt-10 flex justify-center">
-          <input type="text" placeholder="write task here..." id="inputTask" class="inputTask hidden">
+        <div class="mt-10 flex justify-center" id="parentButton">
+          <input type="text" placeholder="write task here..." id="inputTask" class="hidden">
           <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal shadow-xl">+ New Task</button>
         </div>
 
@@ -100,14 +100,62 @@
 
 <script>
 
+    let taskButton = document.getElementById('addTaskButton');
+    let taskInput = document.getElementById('inputTask');
+    let listParent = document.getElementById('parentList');
     
+    // option 1
 
     function addCol(){
+      
+    }
+
+    // function addTaskList(){
+    //   if(taskInput.style.display === 'block' && taskInput.addEventListener()){
+
+    //   }
+    // }
+    
+    taskButton.addEventListener('click',function(){
+      
+      if(taskInput.style.display === 'none' || taskInput.style.display === ''){
+        taskInput.style.display = 'block';
+      // }  else if (taskInput.style.display === 'block'){
+      //   taskInput.style.display = 'none';
+        // let newDiv = document.createElement('div');
+        // let newSpan = document.createElement('span');
+        // let newImg = document.createElement('img');
+        // newSpan.textContent = 'ridwan';
+        // listParent.appendChild(newSpan);
+      } else{
+        // console.log('ridwan')
+        let newDiv = document.createElement('div');
+        let newSpan = document.createElement('span');
+        let newImg = document.createElement('img');
+          
+        if(taskInput.value.trim() !== ''){
+          newSpan.textContent = taskInput.value;
+          listParent.appendChild(newSpan);
+          taskInput.style.display = 'none';
+          taskInput.value = '';
+        } else{
+            alert('kolom masih kosong')
+            taskInput.style.display = 'none';
+          }
+        
+        
+      }
+    })
+
+    // if()
+    
+
+    // function addCol(){
       // let inputTask = document.getElementById
       // let valueTask = document.getElementById('inputTask').style.display ='block';
-      let valueTask = document.getElementById('inputTask');
-      valueTask.style.display = 'block';
-      let inputTaskButton = document.getElementById('addTaskButton').classList.add('inputTask');
+      // document.getElementById('inputTask').style.display = 'block';
+      // document.getElementById('addTaskButton').classList.add('newClassButton');
+      
 
     // console.log(valueTask);
       // console.log(inputTaskButton);
@@ -116,9 +164,7 @@
 
       // let addCol = document.getElementById('addFunction').addEventListener('click', function(){
       //   let valueTask = document.getElementById('inputTask').value;
-      //   let newDiv = document.createElement('div');
-      //   let newSpan = document.createElement('span');
-      //   let newImg = document.createElement('img');
+      
 
       //   newSpan.textContent = valueTask.value;
         // newButton.textContent = 'Delete Task'
@@ -127,9 +173,59 @@
         // valueTask.style.display = 'block';
         // console.log('click');
       // })
-    }
+        // if (buttonTask.classList.contains('newClassButton')) {
+        //       console.log('newClassButton sudah ditambahkan');
+        // } else {
+        //       console.log('newClassButton tidak ada');
+        // }
+
+        // newTask.addEventListener('click',  function(){
+        //     console.log('jalankan fungsi')
+        // })
+
+    // }
+
+    // let jalankan = document.querySelector('#parentButton .newClassButton');
+    // if(jalankan.classList.contains('newClassButton')){
+    //   console.log('ada');
+    // }else{
+      
+    // }
+    // jalankan.classList.contains
+    // document.querySelector('#parentButton .newClassButton').addEventListener('click', addTask);
+    // function addTask(){
+    //       console.log('jalankan')
+    //       document.getElementById('inputTask').style.display = 'none';
+    //       document.getElementById('addTaskButton').classList.remove('newClassButton');
+    //     }
+
+    // function addTask(){
+    //   alert('wakwaw')
+    // }
+
     // console.log(valueTask);
-    document.getElementById('addTaskButton').addEventListener('click', addCol);
+    // document.getElementById('addTaskButton').addEventListener('click', addCol);
+    // document.getElementById('addTaskButton').addEventListener('click', addTask);
+
+    
+
+
+
+    
+
+    // if(newClass = false){
+    //   console.log('yes');
+    // }
+    //   else{
+    //     console.log('no');
+    //   }
+
+    // newClass.addEventListener('click', function(){
+    //   console.log('cek')
+    // })
+    // .addEventListener('click', addTask);
+    // console.log(inputTaskNew);
+
 
   // let myArr = ['Todolist1', 'Todolist2'];
   // let deleteFunction = document.getElementById('deleteFunction');
