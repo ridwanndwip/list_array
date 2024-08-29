@@ -37,26 +37,26 @@
           <h1 class="block justify-items-center flex self-center tracking-md text-xl"> TUESDAY </h1>
         </div>
 
-        <div class="parentList" id="parentList">
+        <div id="parentList">
           <!-- List -->
-          <div class="mt-6 flex justify-between">
-            <span class="block text-xs font-light tracking-sm text-colorLine"> Simple TodoList</span>
-            <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
-          </div>
-    
-          <div class="mt-6 flex justify-between">
-            <span class="block text-xs font-light tracking-sm text-colorLine w-4/5 text-left">Simple TodoList</span>
+          <div class="mt-6 flex justify-between items-center">
+            <span class="block text-xs font-light tracking-sm text-colorLine NameList"> Simple TodoList</span>
             <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
           </div>
     
           <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
-            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+            <span class="block text-xs font-light tracking-sm text-colorLine NameList">Simple TodoList</span>
+            <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+          </div>
+    
+          <div class="mt-6 flex justify-between items-center">
+            <span class="block text-xs tracking-sm font-light NameList"> Simple TodoList</span>
+            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center trash">
           </div>
           
           <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs tracking-sm font-light"> Simple TodoList</span>
-            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
+            <span class="block text-xs tracking-sm font-light NameList"> Simple TodoList</span>
+            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center trash">
           </div>
         </div>
 
@@ -103,23 +103,22 @@
     let taskButton = document.getElementById('addTaskButton');
     let taskInput = document.getElementById('inputTask');
     let listParent = document.getElementById('parentList');
+    const trashList = document.querySelectorAll('.trash');
+
+    function loopThroughTrash() {
+          const trashList = document.querySelectorAll('.trash');
+          trashList.forEach(element => {
+              console.log(element);
+          });
+      }
     
     // option 1
 
-    function addCol(){
-      
-    }
-
-    // function addTaskList(){
-    //   if(taskInput.style.display === 'block' && taskInput.addEventListener()){
-
-    //   }
-    // }
-    
     taskButton.addEventListener('click',function(){
       
       if(taskInput.style.display === 'none' || taskInput.style.display === ''){
         taskInput.style.display = 'block';
+        taskButton.textContent = 'Add Task';
       // }  else if (taskInput.style.display === 'block'){
       //   taskInput.style.display = 'none';
         // let newDiv = document.createElement('div');
@@ -128,24 +127,51 @@
         // newSpan.textContent = 'ridwan';
         // listParent.appendChild(newSpan);
       } else{
-        // console.log('ridwan')
-        let newDiv = document.createElement('div');
-        let newSpan = document.createElement('span');
-        let newImg = document.createElement('img');
-          
-        if(taskInput.value.trim() !== ''){
-          newSpan.textContent = taskInput.value;
-          listParent.appendChild(newSpan);
-          taskInput.style.display = 'none';
-          taskInput.value = '';
-        } else{
-            alert('kolom masih kosong')
-            taskInput.style.display = 'none';
-          }
+            // console.log('ridwan')
+            let newDiv = document.createElement('div');
+            let newSpan = document.createElement('span');
+            let newImg = document.createElement('img');
+              
+            if(taskInput.value.trim() !== ''){
+              newDiv.classList.add('mt-6', 'flex' , 'justify-between', 'items-center');
+              newSpan.classList.add('block', 'text-xs', 'tracking-sm', 'font-light', 'NameList');
+              newImg.setAttribute('src','img/trashpng.png');
+              newImg.setAttribute('style','width: 20px; height: 20px;'); 
+              newImg.classList.add('self-center','trash')
+              newSpan.textContent = taskInput.value;
+              newDiv.appendChild(newSpan);
+              newDiv.appendChild(newImg);
+              listParent.appendChild(newDiv);
+              taskInput.style.display = 'none';
+              taskInput.value = '';
+              // console.log(loopThroughTrash);
+              // loopThroughTrash();
+              // console.log(trashList);
+            } 
+            else{
+              alert('kolom masih kosong')
+              taskButton.textContent = '+ New Task';
+              taskInput.style.display = 'none';
+            }
         
         
       }
     })
+
+    // trashList.forEach(function(el){
+    //   el.addEventListener('click', function(e){
+    //     e.target.reviousElementSibling.style.color = '#D3D3D3';
+    //   })
+    // })
+
+    
+    
+    for(let i =0; i < trashList.length; i++ ){
+      trashList[i].addEventListener('click', function(){
+        trashList[i].setAttribute('src','img/checklistpng.png');
+        trashList[i].previousElementSibling.style.color = '#D3D3D3'  
+      })
+    }
 
     // if()
     
