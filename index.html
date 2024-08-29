@@ -11,13 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
-  <style>
-    /* .responsive-svg-trash{
-      width: 70%;
-
-    } */
-  </style>
-
 </head>
 <body class="bg-colorBg2 font-poppins xs:flex xs:bg-colorBg xs:justify-center">
 
@@ -70,34 +63,6 @@
 
     </div>
     
-    <!-- Add Task Button -->
-    <!-- <div class="-mt-16">
-      <button class="bg-colorText px-7 p-py-3.5 rounded-3xl text-colorBg2 font-medium">+ New Task</button>
-    </div> -->
-
-  <!-- <div class="mx-auto bg-green-400 flex justify-center">
-    <div class="my-12">
-      <h3 class="block bg-yellow-200 py-3 px-20">Simple Todo List</h3>
-
-      <div class="NewTask bg-gray-400 p-4 mt-4">
-        <input type="text" placeholder="write task here..." id="InputTask">
-        <span class="bg-slate-300 cursor-pointer" id="addFunction">Add Task</span>
-      </div> -->
-
-      <!-- List -->
-      <!-- <div class="block mt-4 bg-slate-200 flex gap-3 flex-col py-6" id="ParentList">
-        
-        <div class="list flex mx-4">
-          <img src="img/ArrowCircle.png" class="block mr-2" width="23px">
-          <span> ToDoList1 update 23/12 </span>
-          <button class="ml-10 deleteFunction" id="removeList"> delete Task </button>
-        </div>
-
-      </div>
-
-    </div>
-  </div> -->
-
 <script>
 
     let taskButton = document.getElementById('addTaskButton');
@@ -105,34 +70,40 @@
     let listParent = document.getElementById('parentList');
     const trashList = document.querySelectorAll('.trash');
 
-    function loopThroughTrash() {
-          const trashList = document.querySelectorAll('.trash');
-          trashList.forEach(element => {
-              console.log(element);
-          });
+    /* karena event listeners hanya ditambahkan pada elemen-elemen yang ada saat loop pertama kali dijalankan. Ketika elemen trashList baru ditambahkan setelah itu, event listener tidak secara otomatis ditambahkan ke elemen tersebut. 
+    SOLUSI : Delegasi Event: Delegasi event memungkinkan kamu untuk menangani event di elemen induk yang ada sejak awal, yang kemudian menangkap klik pada elemen trashList baru yang ditambahkan. */
+
+    function deleteTask() {
+    const trashList = document.querySelectorAll('.trash');
+          for(let i = 0; i < trashList.length; i++ ){
+              trashList[i].addEventListener('click', function(){
+                  trashList[i].setAttribute('src','img/checklistpng.png');
+                  trashList[i].previousElementSibling.style.color = '#D3D3D3';
+              });
+          }
       }
-    
-    // option 1
 
     taskButton.addEventListener('click',function(){
       
       if(taskInput.style.display === 'none' || taskInput.style.display === ''){
         taskInput.style.display = 'block';
         taskButton.textContent = 'Add Task';
-      // }  else if (taskInput.style.display === 'block'){
-      //   taskInput.style.display = 'none';
-        // let newDiv = document.createElement('div');
-        // let newSpan = document.createElement('span');
-        // let newImg = document.createElement('img');
-        // newSpan.textContent = 'ridwan';
-        // listParent.appendChild(newSpan);
       } else{
-            // console.log('ridwan')
             let newDiv = document.createElement('div');
             let newSpan = document.createElement('span');
             let newImg = document.createElement('img');
               
+            /*
+            'trim()'
+            - Metode trim() menghapus semua spasi putih di awal dan akhir string.
+            - Misalnya, jika pengguna memasukkan " hello world " (dengan spasi di awal dan akhir), trim() akan mengubahnya menjadi "hello world".
+            
+            !== ''
+            - !== adalah operator ketidaksamaan yang memeriksa apakah nilai di sebelah kiri tidak sama dengan nilai di sebelah kanan.
+            - '' adalah string kosong, jadi !== '' berarti "tidak sama dengan string kosong."
+            */
             if(taskInput.value.trim() !== ''){
+
               newDiv.classList.add('mt-6', 'flex' , 'justify-between', 'items-center');
               newSpan.classList.add('block', 'text-xs', 'tracking-sm', 'font-light', 'NameList');
               newImg.setAttribute('src','img/trashpng.png');
@@ -144,190 +115,16 @@
               listParent.appendChild(newDiv);
               taskInput.style.display = 'none';
               taskInput.value = '';
-              // console.log(loopThroughTrash);
-              // loopThroughTrash();
-              // console.log(trashList);
+              taskButton.textContent = '+ New Task';
+              deleteTask();
             } 
             else{
               alert('kolom masih kosong')
               taskButton.textContent = '+ New Task';
               taskInput.style.display = 'none';
             }
-        
-        
       }
     })
-
-    // trashList.forEach(function(el){
-    //   el.addEventListener('click', function(e){
-    //     e.target.reviousElementSibling.style.color = '#D3D3D3';
-    //   })
-    // })
-
-    
-    
-    for(let i =0; i < trashList.length; i++ ){
-      trashList[i].addEventListener('click', function(){
-        trashList[i].setAttribute('src','img/checklistpng.png');
-        trashList[i].previousElementSibling.style.color = '#D3D3D3'  
-      })
-    }
-
-    // if()
-    
-
-    // function addCol(){
-      // let inputTask = document.getElementById
-      // let valueTask = document.getElementById('inputTask').style.display ='block';
-      // document.getElementById('inputTask').style.display = 'block';
-      // document.getElementById('addTaskButton').classList.add('newClassButton');
-      
-
-    // console.log(valueTask);
-      // console.log(inputTaskButton);
-      // valueTask.classList.add('inputTask');
-      // console.log(valueTask);
-
-      // let addCol = document.getElementById('addFunction').addEventListener('click', function(){
-      //   let valueTask = document.getElementById('inputTask').value;
-      
-
-      //   newSpan.textContent = valueTask.value;
-        // newButton.textContent = 'Delete Task'
-
-        // console.log(newSpan);
-        // valueTask.style.display = 'block';
-        // console.log('click');
-      // })
-        // if (buttonTask.classList.contains('newClassButton')) {
-        //       console.log('newClassButton sudah ditambahkan');
-        // } else {
-        //       console.log('newClassButton tidak ada');
-        // }
-
-        // newTask.addEventListener('click',  function(){
-        //     console.log('jalankan fungsi')
-        // })
-
-    // }
-
-    // let jalankan = document.querySelector('#parentButton .newClassButton');
-    // if(jalankan.classList.contains('newClassButton')){
-    //   console.log('ada');
-    // }else{
-      
-    // }
-    // jalankan.classList.contains
-    // document.querySelector('#parentButton .newClassButton').addEventListener('click', addTask);
-    // function addTask(){
-    //       console.log('jalankan')
-    //       document.getElementById('inputTask').style.display = 'none';
-    //       document.getElementById('addTaskButton').classList.remove('newClassButton');
-    //     }
-
-    // function addTask(){
-    //   alert('wakwaw')
-    // }
-
-    // console.log(valueTask);
-    // document.getElementById('addTaskButton').addEventListener('click', addCol);
-    // document.getElementById('addTaskButton').addEventListener('click', addTask);
-
-    
-
-
-
-    
-
-    // if(newClass = false){
-    //   console.log('yes');
-    // }
-    //   else{
-    //     console.log('no');
-    //   }
-
-    // newClass.addEventListener('click', function(){
-    //   console.log('cek')
-    // })
-    // .addEventListener('click', addTask);
-    // console.log(inputTaskNew);
-
-
-  // let myArr = ['Todolist1', 'Todolist2'];
-  // let deleteFunction = document.getElementById('deleteFunction');
-    
-  // deklarasi element
-    
-
-    // memasukkan konten ke element
-
-    // tambah class
-    
-
-    // memasukkan element yang sudah di deklarasi ke node
-   
-    
-    // console.log(newDiv);
-
-    // let valueTask = document.getElementById('InputTask');
-
-    // let newButton = document.getElementById('button').addEventListener('click', function(){
-    //   valueTask.style.display = 'block';
-    // })  
-
-
-    // function AddTask(){
-    // let parentList = document.getElementById('ParentList');
-    // let valueTask = document.getElementById('InputTask').value;
-    // let newButton = document.createElement('button');
-
-    // newSpan.textContent = valueTask;
-    // newButton.textContent = 'Delete Task'
-
-    // newDiv.appendChild(newImg);
-    // newDiv.appendChild(newSpan);
-    // newDiv.appendChild(newButton);
-
-    // newDiv.classList.add('flex', 'm-4', 'list');
-    // newImg.setAttribute('src', 'img/ArrowCircle.png');
-    // newImg.setAttribute('width', '24px');
-    // newImg.classList.add('block', 'mr-2');
-    // newButton.classList.add('ml-10', 'deleteFunction');
-
-    // memasukkan div ke dalam parentList
-  //   parentList.appendChild(newDiv);
-  // }
-
-  // function DeleteTask(){
-  //   for (let i = 0; i < deleteList.length; i++){
-  //     console.log(deleteList[i]);
-  //   }
-  // }
-  
-  // function DeleteTask(){
-  //   let deleteList = document.querySelectorAll('.deleteFunction');
-  //   for(let i = 0; i<deleteList.length; i++){
-  //     deleteList[i].addEventListener('click', function(){
-  //       console.log(i)
-  //     })
-  //   }
-  // }
-  
-
-
-  // Menambahkan eventListener untuk tambah data 
-
-  // document.getElementById('removeList').addEventListener('click', DeleteTask);
-
-  // console.log(onclick.addFunction);
-  
-  
-  // console.log(inputTask);
-
-  // function tambahData(){
-  //   let valueTask = inputTask.value;
-  //   console.log(valueTask);
-  // }
 
 </script>
 </body>
