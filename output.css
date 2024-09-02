@@ -554,51 +554,40 @@ video {
   --tw-contain-style:  ;
 }
 
-.m-4 {
-  margin: 1rem;
+.static {
+  position: static;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+.absolute {
+  position: absolute;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.relative {
+  position: relative;
 }
 
-.my-12 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-.-mt-16 {
-  margin-top: -4rem;
+.z-10 {
+  z-index: 10;
 }
 
 .mb-10 {
   margin-bottom: 2.5rem;
 }
 
-.ml-10 {
-  margin-left: 2.5rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
 .mt-10 {
   margin-top: 2.5rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mt-3\.5 {
+  margin-top: 0.875rem;
 }
 
 .block {
@@ -617,16 +606,8 @@ video {
   height: 100vh;
 }
 
-.w-4\/5 {
-  width: 80%;
-}
-
 .w-full {
   width: 100%;
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }
 
 .flex-col {
@@ -657,10 +638,6 @@ video {
   gap: 0.5rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .gap-4 {
   gap: 1rem;
 }
@@ -677,6 +654,15 @@ video {
   border-radius: 1.5rem;
 }
 
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-colorText {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 45 78 / var(--tw-border-opacity));
+}
+
 .bg-colorBg2 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 247 247 / var(--tw-bg-opacity));
@@ -687,56 +673,13 @@ video {
   background-color: rgb(17 45 78 / var(--tw-bg-opacity));
 }
 
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
-
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-
-.bg-slate-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
 .p-5 {
   padding: 1.25rem;
-}
-
-.p-py-3\.5 {
-  padding: 0.9rem 0 0.9rem 0;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.px-7 {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .py-3 {
@@ -747,15 +690,6 @@ video {
 .py-3\.5 {
   padding-top: 0.875rem;
   padding-bottom: 0.875rem;
-}
-
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .font-poppins {

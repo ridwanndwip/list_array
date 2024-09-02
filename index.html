@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testing</title>
   <link href="output.css" rel="stylesheet">
+  <link rel="stylesheet" href="reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
@@ -55,8 +56,8 @@
 
         <!-- Button -->
         <div class="mt-10 flex justify-center" id="parentButton">
-          <input type="text" placeholder="write task here..." id="inputTask" class="hidden">
-          <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal shadow-xl">+ New Task</button>
+          <input type="text" placeholder="write task here..." id="inputTask" class="hidden bg-colorBg2 border-b border-colorText absolute mt-3.5">
+          <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal shadow-xl z-10">Add Task</button>
         </div>
 
       </div>
@@ -83,11 +84,30 @@
           }
       }
 
+    function returnButtonStyle(){
+      taskButton.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+      taskButton.textContent = 'Add Task';
+      taskInput.style.display = 'none';        
+      taskButton.style.backgroundColor = '#112D4E';
+      taskButton.style.color = '#F9F7F7';
+      taskButton.style.position = 'static';
+      taskButton.style.left = '0';
+    }
+
+    function updateButtonStyle(){
+      taskButton.style.backgroundColor = 'transparent';
+      taskButton.style.color = '#112D4E';
+      taskInput.style.display = 'block';
+      taskButton.textContent = '+';
+      taskButton.style.boxShadow = 'none';
+      taskButton.style.position = 'relative';
+      taskButton.style.left = '100px';
+    }
+
     taskButton.addEventListener('click',function(){
       
       if(taskInput.style.display === 'none' || taskInput.style.display === ''){
-        taskInput.style.display = 'block';
-        taskButton.textContent = 'Add Task';
+          updateButtonStyle();
       } else{
             let newDiv = document.createElement('div');
             let newSpan = document.createElement('span');
@@ -115,13 +135,13 @@
               listParent.appendChild(newDiv);
               taskInput.style.display = 'none';
               taskInput.value = '';
-              taskButton.textContent = '+ New Task';
+              taskButton.textContent = '+';
               deleteTask();
+              returnButtonStyle();
             } 
             else{
               alert('kolom masih kosong')
-              taskButton.textContent = '+ New Task';
-              taskInput.style.display = 'none';
+              returnButtonStyle();
             }
       }
     })
