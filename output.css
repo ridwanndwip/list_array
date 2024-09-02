@@ -578,16 +578,12 @@ video {
   margin-top: 2.5rem;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
+.mt-3\.5 {
+  margin-top: 0.875rem;
 }
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mt-3\.5 {
-  margin-top: 0.875rem;
 }
 
 .block {
@@ -608,6 +604,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .flex-col {
@@ -675,6 +675,18 @@ video {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .px-6 {
@@ -757,10 +769,124 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.delay-150 {
+  transition-delay: 150ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+.duration-75 {
+  transition-duration: 75ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.placeholder\:bg-colorText::-moz-placeholder {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 45 78 / var(--tw-bg-opacity));
+}
+
+.placeholder\:bg-colorText::placeholder {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 45 78 / var(--tw-bg-opacity));
+}
+
+.placeholder\:text-lg::-moz-placeholder {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.placeholder\:text-lg::placeholder {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.placeholder\:text-sm::-moz-placeholder {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.placeholder\:text-sm::placeholder {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.placeholder\:font-extralight::-moz-placeholder {
+  font-weight: 200;
+}
+
+.placeholder\:font-extralight::placeholder {
+  font-weight: 200;
+}
+
+.placeholder\:font-thin::-moz-placeholder {
+  font-weight: 100;
+}
+
+.placeholder\:font-thin::placeholder {
+  font-weight: 100;
+}
+
+.placeholder\:text-colorText::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(17 45 78 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-colorText::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(17 45 78 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-400::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-400::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 @media (min-width: 400px) {
   .xs\:mx-8 {
     margin-left: 2rem;
     margin-right: 2rem;
+  }
+
+  .xs\:mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .xs\:flex {
@@ -773,6 +899,14 @@ video {
 
   .xs\:w-96 {
     width: 24rem;
+  }
+
+  .xs\:w-2 {
+    width: 0.5rem;
+  }
+
+  .xs\:w-80 {
+    width: 20rem;
   }
 
   .xs\:justify-center {
