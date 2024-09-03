@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;1,200;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
 
 </head>
 <body class="bg-colorBg2 font-poppins xs:flex xs:bg-colorBg xs:justify-center">
@@ -56,8 +56,8 @@
 
         <!-- Button -->
         <div class="mt-10 flex justify-center" id="parentButton">
-          <input type="text" placeholder="write task here..." id="inputTask" class=" bg-colorBg2 border-b border-colorText absolute mt-3.5 focus:outline-none transition-all ease-in-out duration-500 w-0 placeholder:text-gray-400 placeholder:text-sm placeholder:font-thin">
-          <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-normal shadow-xl z-10 transition-all ease-in-out duration-500 focus:outline-none">Add Task</button>
+          <input type="text" placeholder="write task here..." id="inputTask" class=" bg-colorBg2 border-b border-colorText absolute mt-3.5 font-light text-xs focus:outline-none outline-none transition-all ease-in-out duration-500 w-0 placeholder:text-gray-400 placeholder:text-xs placeholder:font-thin pl-2 pb-1">
+          <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-light shadow-xl z-10 transition-all ease-in-out duration-300 focus:outline-none outline-none">Add Task</button>
         </div>
 
       </div>
@@ -85,15 +85,21 @@
       }
 
     function returnButtonStyle(){
-      taskButton.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
+      taskButton.style.opacity = '0';
+      setTimeout(() => {
+        taskInput.style.width = '0px';
+        taskInput.style.width = '';
+      }, 300);
+      
+      setTimeout(() => {
+        taskButton.style.boxShadow = '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)';
       taskButton.textContent = 'Add Task';
-      // taskInput.style.display = 'none';
-      taskInput.style.width = '0px';
-      taskInput.style.width = '';     
       taskButton.style.backgroundColor = '#112D4E';
       taskButton.style.color = '#F9F7F7';
       taskButton.style.position = 'static';
       taskButton.style.left = '0';
+      taskButton.style.opacity = '1';
+      }, 500);
     }
 
     function buttonAnimation(){
@@ -102,7 +108,7 @@
       taskButton.textContent = '+';
       taskButton.style.boxShadow = 'none';
       taskButton.style.position = 'relative';
-      taskButton.style.left = '110px';
+      taskButton.style.left = '100px';
     }
 
     taskButton.addEventListener('click',function(){
@@ -110,18 +116,15 @@
       if(taskInput.style.width === '0' || taskInput.style.width === ''){
           taskButton.style.opacity = '0';
           setTimeout(() => {
-            taskInput.style.width = '180px';
-          }, 300);
+          taskInput.style.width = '220px';
+          }, 100);
           setTimeout(() => {
             buttonAnimation();
           }, 400);
           setTimeout(() => {
             taskButton.style.opacity = '1';
-          }, 1000);
+          }, 700);
 
-          
-          // updateButtonStyle();
-          
       } else{
             let newDiv = document.createElement('div');
             let newSpan = document.createElement('span');
@@ -147,12 +150,15 @@
               newDiv.appendChild(newSpan);
               newDiv.appendChild(newImg);
               listParent.appendChild(newDiv);
-              taskInput.style.width = '0px';
-              taskInput.style.width = '';
-              taskInput.value = '';
-              taskButton.textContent = '+';
+              // taskInput.style.width = '0px';
+              // taskInput.style.width = '';
+              
+              // taskButton.textContent = '+';
+              setTimeout(() => {
+                returnButtonStyle();
+                }, 400);
+                taskInput.value = '';
               deleteTask();
-              returnButtonStyle();
             } 
             else{
               alert('kolom masih kosong')
