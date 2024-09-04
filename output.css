@@ -606,6 +606,10 @@ video {
   width: 100%;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -638,8 +642,8 @@ video {
   gap: 1rem;
 }
 
-.self-end {
-  align-self: flex-end;
+.self-start {
+  align-self: flex-start;
 }
 
 .self-center {
@@ -652,11 +656,6 @@ video {
 
 .border-b-2 {
   border-bottom-width: 2px;
-}
-
-.border-gray-900 {
-  --tw-border-opacity: 1;
-  border-color: rgb(17 24 39 / var(--tw-border-opacity));
 }
 
 .border-colorText {
@@ -857,8 +856,8 @@ video {
     padding: 2.5rem;
   }
 
-  .xs\:text-6xl {
-    font-size: 3.75rem;
+  .xs\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 

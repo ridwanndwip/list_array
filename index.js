@@ -94,7 +94,7 @@ taskButton.addEventListener('click',function(){
           newSpan.classList.add('block', 'text-xs', 'tracking-sm', 'font-light', 'NameList','ease-in-out','duration-400', 'transition-all');
           newImg.setAttribute('src','img/trashpng.png');
           newImg.setAttribute('style','width: 20px; height: 20px;'); 
-          newImg.classList.add('self-center','trash')
+          newImg.classList.add('self-center','trash','cursor-pointer')
           newSpan.textContent = taskInput.value;
           newDiv.appendChild(newSpan);
           newDiv.appendChild(newImg);
