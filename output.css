@@ -650,8 +650,13 @@ video {
   border-radius: 1.5rem;
 }
 
-.border-b {
-  border-bottom-width: 1px;
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-gray-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(17 24 39 / var(--tw-border-opacity));
 }
 
 .border-colorText {
@@ -673,10 +678,6 @@ video {
   padding: 1.25rem;
 }
 
-.p-3 {
-  padding: 0.75rem;
-}
-
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -692,12 +693,8 @@ video {
   padding-bottom: 0.875rem;
 }
 
-.pl-3 {
-  padding-left: 0.75rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .pl-2 {
@@ -734,10 +731,6 @@ video {
 
 .font-medium {
   font-weight: 500;
-}
-
-.font-normal {
-  font-weight: 400;
 }
 
 .tracking-md {
@@ -780,26 +773,16 @@ video {
   transition-duration: 150ms;
 }
 
-.duration-500 {
-  transition-duration: 500ms;
-}
-
 .duration-300 {
   transition-duration: 300ms;
 }
 
+.duration-500 {
+  transition-duration: 500ms;
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.placeholder\:text-sm::-moz-placeholder {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.placeholder\:text-sm::placeholder {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .placeholder\:text-xs::-moz-placeholder {
@@ -812,22 +795,30 @@ video {
   line-height: 1rem;
 }
 
-.placeholder\:font-thin::-moz-placeholder {
-  font-weight: 100;
+.placeholder\:font-extralight::-moz-placeholder {
+  font-weight: 200;
 }
 
-.placeholder\:font-thin::placeholder {
-  font-weight: 100;
+.placeholder\:font-extralight::placeholder {
+  font-weight: 200;
 }
 
-.placeholder\:text-gray-400::-moz-placeholder {
+.placeholder\:tracking-wider::-moz-placeholder {
+  letter-spacing: 0.05em;
+}
+
+.placeholder\:tracking-wider::placeholder {
+  letter-spacing: 0.05em;
+}
+
+.placeholder\:text-gray-600::-moz-placeholder {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.placeholder\:text-gray-400::placeholder {
+.placeholder\:text-gray-600::placeholder {
   --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .focus\:outline-none:focus {

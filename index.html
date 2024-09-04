@@ -34,29 +34,20 @@
         <div id="parentList">
           <!-- List -->
           <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs font-light tracking-sm text-colorLine NameList"> Simple TodoList</span>
+            <span class="block text-xs font-light tracking-sm text-colorLine NameList  transition-all ease-in-out duration-400"> Simple TodoList</span>
             <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
           </div>
-    
+
           <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs font-light tracking-sm text-colorLine NameList">Simple TodoList</span>
-            <img src="img/checklistpng.png" style="width: 20px; height: 20px;" alt="" class="self-center">
-          </div>
-    
-          <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs tracking-sm font-light NameList"> Simple TodoList</span>
+            <span class="block text-xs tracking-sm font-light NameList transition-all ease-in-out duration-400"> Simple TodoList</span>
             <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center trash">
           </div>
           
-          <div class="mt-6 flex justify-between items-center">
-            <span class="block text-xs tracking-sm font-light NameList"> Simple TodoList</span>
-            <img src="img/trashpng.png" style="width: 20px; height: 20px;" alt="" class="self-center trash">
-          </div>
         </div>
 
         <!-- Button -->
         <div class="mt-10 flex justify-center" id="parentButton">
-          <input type="text" placeholder="write task here..." id="inputTask" class=" bg-colorBg2 border-b border-colorText absolute mt-3.5 font-light text-xs focus:outline-none outline-none transition-all ease-in-out duration-500 w-0 placeholder:text-gray-400 placeholder:text-xs placeholder:font-thin pl-2 pb-1">
+          <input type="text" placeholder="write task here..." id="inputTask" class=" bg-colorBg2 border-b-2 border-colorText absolute mt-3.5 font-light text-xs focus:outline-none outline-none transition-all ease-in-out duration-500 w-0 placeholder:text-gray-600 placeholder:text-xs placeholder:font-extralight placeholder:tracking-wider pb-2 pl-2">
           <button id="addTaskButton" class="bg-colorText px-6 py-3 rounded-3xl text-colorBg2 font-light shadow-xl z-10 transition-all ease-in-out duration-300 focus:outline-none outline-none">Add Task</button>
         </div>
 
@@ -70,6 +61,7 @@
     let taskInput = document.getElementById('inputTask');
     let listParent = document.getElementById('parentList');
     const trashList = document.querySelectorAll('.trash');
+    
 
     /* karena event listeners hanya ditambahkan pada elemen-elemen yang ada saat loop pertama kali dijalankan. Ketika elemen trashList baru ditambahkan setelah itu, event listener tidak secara otomatis ditambahkan ke elemen tersebut. 
     SOLUSI : Delegasi Event: Delegasi event memungkinkan kamu untuk menangani event di elemen induk yang ada sejak awal, yang kemudian menangkap klik pada elemen trashList baru yang ditambahkan. */
@@ -83,6 +75,7 @@
               });
           }
       }
+      deleteTask();
 
     function returnButtonStyle(){
       taskButton.style.opacity = '0';
@@ -103,12 +96,20 @@
     }
 
     function buttonAnimation(){
+      
+      taskButton.textContent = '';
+      let newImgButton = document.createElement('img');
+      newImgButton.setAttribute('style','width: 20px; height: 20px;');
+      newImgButton.setAttribute('src','img/add.png');
+      taskButton.appendChild(newImgButton); 
+      
+      // taskInput.style.backgroundColor = '#343A50';
       taskButton.style.backgroundColor = 'transparent';
       taskButton.style.color = '#112D4E';
-      taskButton.textContent = '+';
       taskButton.style.boxShadow = 'none';
       taskButton.style.position = 'relative';
       taskButton.style.left = '100px';
+      // taskButton.style.top = '35px';
     }
 
     taskButton.addEventListener('click',function(){
@@ -116,7 +117,7 @@
       if(taskInput.style.width === '0' || taskInput.style.width === ''){
           taskButton.style.opacity = '0';
           setTimeout(() => {
-          taskInput.style.width = '220px';
+          taskInput.style.width = '230px';
           }, 100);
           setTimeout(() => {
             buttonAnimation();
@@ -142,7 +143,7 @@
             if(taskInput.value.trim() !== ''){
 
               newDiv.classList.add('mt-6', 'flex' , 'justify-between', 'items-center');
-              newSpan.classList.add('block', 'text-xs', 'tracking-sm', 'font-light', 'NameList');
+              newSpan.classList.add('block', 'text-xs', 'tracking-sm', 'font-light', 'NameList','ease-in-out','duration-400', 'transition-all');
               newImg.setAttribute('src','img/trashpng.png');
               newImg.setAttribute('style','width: 20px; height: 20px;'); 
               newImg.classList.add('self-center','trash')
@@ -150,10 +151,6 @@
               newDiv.appendChild(newSpan);
               newDiv.appendChild(newImg);
               listParent.appendChild(newDiv);
-              // taskInput.style.width = '0px';
-              // taskInput.style.width = '';
-              
-              // taskButton.textContent = '+';
               setTimeout(() => {
                 returnButtonStyle();
                 }, 400);
